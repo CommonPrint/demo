@@ -40,7 +40,7 @@ public class BrandController {
         return brandService.create(brand);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public BrandReadDto update(@PathVariable("id") Long id,
                                  @RequestBody BrandCreateEditDto brand) {
         return brandService.update(id, brand)
