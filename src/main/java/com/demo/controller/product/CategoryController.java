@@ -43,7 +43,7 @@ public class CategoryController {
         return categoryService.create(category);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public CategoryReadDto update(@PathVariable("id") Long id,
                                  @RequestBody CategoryCreateEditDto category) {
         return categoryService.update(id, category)
