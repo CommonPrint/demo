@@ -41,13 +41,9 @@ public class CountryService {
     }
 	
 	public CountryReadDto create(CountryCreateEditDto countryDto) {
-//		Country country = new Country();
-
-		System.out.println("CountryDto: " + countryDto);
 
         return Optional.of(countryDto)
         		.map(dto -> {
-					System.out.println("CountryDto from map: " + dto);
         			return countryCreateEditMapper.map(dto);
         		})
 				.map(countryRepo::save)

@@ -37,13 +37,6 @@ public class CityService {
                 .toList();
     }
 
-//  Для пагинации
-//    Page<CityReadDto> getAllCities(CityFilter filter, Pageable pageable) {
-//        return cityRepository.findAll()
-//                .stream()
-//                .map(cityReadMapper::map)
-//                .toList();
-//    }
 
     public List<CityReadDto> findAllByCountryId(Long countryId) {
         System.out.println("Cities by country: " + cityRepository.findAllByCountryId(countryId));
