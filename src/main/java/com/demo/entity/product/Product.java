@@ -1,16 +1,18 @@
 package com.demo.entity.product;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 @Entity
 @Data
+//@ToString(exclude = "productShares")
 @Table
 @Builder
 @NoArgsConstructor
@@ -23,18 +25,31 @@ public class Product {
 
     private Integer price;
 
-    private String productName;
+    private String name;
 
     private String color;
 
     private String description;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_type_id")
     private ProductType productType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "share_id", columnDefinition = "null")
-    private Share share;
+    @JoinColumn(name = "category_id", columnDefinition = "null")
+    private Category category;
 
+
+    // У одного продукта может быть несколько акций и скидок
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "product_shares",
+                joinColumns = @JoinColumn(name = "product_id"),
+                inverseJoinColumns = @JoinColumn(name = "share_id"))
+    private Set<Share> shares = new HashSet<>();
+
+
+    // У одного продукта может быть несколько акций и скидок
+//    @Builder.Default
+//    @OneToMany(mappedBy = "product")
+//    private List<ProductShare> productShares = new ArrayList<>();
 }

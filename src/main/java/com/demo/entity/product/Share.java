@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -28,4 +30,9 @@ public class Share {
 
     @Column(nullable = false)
     private Integer sharePeriod;
+
+//    @Builder.Default
+//    @OneToMany(mappedBy = "share")
+//    private List<ProductShare> productShares = new ArrayList<>();
+
 }
