@@ -102,7 +102,6 @@ public class CityService {
 
             users.stream()
                     .forEach(user -> {
-                        System.out.println("User: " + user);
 
                         //    В конце указываем, что города нет и значение city_id у пользователя будет null
                         UserCreateEditDto userEdit = new UserCreateEditDto(
