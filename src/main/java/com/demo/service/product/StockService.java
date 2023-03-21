@@ -39,8 +39,8 @@ public class StockService {
 
 
     //    Создать наличие
-    public StockReadDto create(StockCreateEditDto StockDto) {
-        return Optional.of(StockDto)
+    public StockReadDto create(StockCreateEditDto stockDto) {
+        return Optional.of(stockDto)
                 .map(dto -> {
                     dto.setLastUpdateTime(LocalDate.now());
 

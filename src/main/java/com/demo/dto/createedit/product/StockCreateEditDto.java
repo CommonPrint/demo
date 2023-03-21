@@ -1,6 +1,5 @@
 package com.demo.dto.createedit.product;
 
-import com.demo.entity.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

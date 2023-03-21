@@ -1,10 +1,6 @@
 package com.demo.mapper.createedit.product;
 
-import com.demo.dto.createedit.CityCreateEditDto;
-import com.demo.dto.createedit.product.ProductCreateEditDto;
 import com.demo.dto.createedit.product.StockCreateEditDto;
-import com.demo.entity.City;
-import com.demo.entity.Country;
 import com.demo.entity.product.Product;
 import com.demo.entity.product.Stock;
 import com.demo.mapper.Mapper;
@@ -12,7 +8,6 @@ import com.demo.repository.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 @Component

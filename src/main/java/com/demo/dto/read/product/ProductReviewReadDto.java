@@ -1,22 +1,33 @@
 package com.demo.dto.read.product;
 
+
+import com.demo.dto.read.UserReadDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StockReadDto {
+public class ProductReviewReadDto {
 
     Long id;
 
+    Integer rating;
 
-    Integer quantity;
-    LocalDate lastUpdateTime;
+    String dignity;
+
+    String flaws;
+
+    String textReview;
+
+    LocalDate dateReview;
 
     ProductReadDto product;
+
+    UserReadDto user;
 
 }
