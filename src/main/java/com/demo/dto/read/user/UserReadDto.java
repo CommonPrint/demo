@@ -1,5 +1,6 @@
-package com.demo.dto.read;
+package com.demo.dto.read.user;
 
+import com.demo.dto.read.CityReadDto;
 import com.demo.entity.City;
 import lombok.AllArgsConstructor;
 import lombok.Data;

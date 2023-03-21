@@ -60,10 +60,6 @@ public class ProductCreateEditMapper implements Mapper<ProductCreateEditDto, Pro
     // Получим Категорию Продукта
     public Category getCategory(Long categoryId) {
 
-        System.out.println("Category id: " + categoryId);
-
-        System.out.println("Category: " + categoryRepository.findById(categoryId));
-
         return Optional.ofNullable(categoryId)
                 .flatMap(categoryRepository::findById)
                 .orElse(null);

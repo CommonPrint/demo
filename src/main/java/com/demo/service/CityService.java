@@ -1,15 +1,15 @@
 package com.demo.service;
 
 import com.demo.dto.createedit.CityCreateEditDto;
-import com.demo.dto.createedit.UserCreateEditDto;
+import com.demo.dto.createedit.user.UserCreateEditDto;
 import com.demo.dto.read.CityReadDto;
 import com.demo.entity.user.User;
 import com.demo.mapper.createedit.CityCreateEditMapper;
-import com.demo.mapper.createedit.UserCreateEditMapper;
+import com.demo.mapper.createedit.user.UserCreateEditMapper;
 import com.demo.mapper.read.CityReadMapper;
-import com.demo.mapper.read.UserReadMapper;
+import com.demo.mapper.read.user.UserReadMapper;
 import com.demo.repository.CityRepository;
-import com.demo.repository.UserRepository;
+import com.demo.repository.user.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

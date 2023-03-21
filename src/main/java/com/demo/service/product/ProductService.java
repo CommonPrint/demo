@@ -35,8 +35,6 @@ public class ProductService {
     private final StockReadMapper stockReadMapper;
 
 
-
-
     //	Получить все Продукты
     public List<ProductReadDto> findAll() {
         return this.productRepository.findAll()

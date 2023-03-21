@@ -1,4 +1,4 @@
-package com.demo.dto.createedit;
+package com.demo.dto.createedit.user;
 
 import com.demo.entity.City;
 import lombok.*;

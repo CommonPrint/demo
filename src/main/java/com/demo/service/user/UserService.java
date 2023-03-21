@@ -1,15 +1,15 @@
-package com.demo.service;
+package com.demo.service.user;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.demo.dto.createedit.UserCreateEditDto;
-import com.demo.dto.read.UserReadDto;
-import com.demo.mapper.createedit.UserCreateEditMapper;
-import com.demo.mapper.read.UserReadMapper;
+import com.demo.dto.createedit.user.UserCreateEditDto;
+import com.demo.dto.read.user.UserReadDto;
+import com.demo.mapper.createedit.user.UserCreateEditMapper;
+import com.demo.mapper.read.user.UserReadMapper;
 import org.springframework.stereotype.Service;
 
-import com.demo.repository.UserRepository;
+import com.demo.repository.user.UserRepository;
 
 import lombok.AllArgsConstructor;
 

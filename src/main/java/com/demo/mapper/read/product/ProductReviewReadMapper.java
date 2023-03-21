@@ -1,11 +1,11 @@
 package com.demo.mapper.read.product;
 
 
-import com.demo.dto.read.UserReadDto;
+import com.demo.dto.read.user.UserReadDto;
 import com.demo.dto.read.product.*;
 import com.demo.entity.product.ProductReview;
 import com.demo.mapper.Mapper;
-import com.demo.mapper.read.UserReadMapper;
+import com.demo.mapper.read.user.UserReadMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

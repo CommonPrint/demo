@@ -1,11 +1,8 @@
-package com.demo.controller;
+package com.demo.controller.user;
 
-import com.demo.dto.createedit.CityCreateEditDto;
-import com.demo.dto.createedit.UserCreateEditDto;
-import com.demo.dto.read.CityReadDto;
-import com.demo.dto.read.UserReadDto;
-import com.demo.service.CityService;
-import com.demo.service.UserService;
+import com.demo.dto.createedit.user.UserCreateEditDto;
+import com.demo.dto.read.user.UserReadDto;
+import com.demo.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

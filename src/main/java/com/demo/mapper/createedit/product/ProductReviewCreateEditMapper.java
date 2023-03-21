@@ -1,22 +1,15 @@
 package com.demo.mapper.createedit.product;
 
-import com.demo.dto.createedit.product.ProductCreateEditDto;
 import com.demo.dto.createedit.product.ProductReviewCreateEditDto;
-import com.demo.dto.read.product.ShareReadDto;
 import com.demo.entity.product.*;
 import com.demo.entity.user.User;
 import com.demo.mapper.Mapper;
-import com.demo.repository.UserRepository;
-import com.demo.repository.product.CategoryRepository;
+import com.demo.repository.user.UserRepository;
 import com.demo.repository.product.ProductRepository;
-import com.demo.repository.product.ProductTypeRepository;
-import com.demo.repository.product.ShareRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 
 @Component
 @RequiredArgsConstructor

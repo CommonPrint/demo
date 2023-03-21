@@ -1,9 +1,10 @@
-package com.demo.mapper.read;
+package com.demo.mapper.read.user;
 
 import com.demo.dto.read.CityReadDto;
-import com.demo.dto.read.UserReadDto;
+import com.demo.dto.read.user.UserReadDto;
 import com.demo.entity.user.User;
 import com.demo.mapper.Mapper;
+import com.demo.mapper.read.CityReadMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

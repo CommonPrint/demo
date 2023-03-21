@@ -1,7 +1,7 @@
 package com.demo.dto.read.product;
 
 
-import com.demo.dto.read.UserReadDto;
+import com.demo.dto.read.user.UserReadDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

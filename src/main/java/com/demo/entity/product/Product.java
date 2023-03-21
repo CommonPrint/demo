@@ -4,9 +4,7 @@ package com.demo.entity.product;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 
@@ -46,7 +44,6 @@ public class Product {
                 joinColumns = @JoinColumn(name = "product_id"),
                 inverseJoinColumns = @JoinColumn(name = "share_id"))
     private Set<Share> shares = new HashSet<>();
-
 
     // У одного продукта может быть несколько акций и скидок
 //    @Builder.Default

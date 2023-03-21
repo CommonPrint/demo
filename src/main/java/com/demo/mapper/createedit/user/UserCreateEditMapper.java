@@ -1,6 +1,6 @@
-package com.demo.mapper.createedit;
+package com.demo.mapper.createedit.user;
 
-import com.demo.dto.createedit.UserCreateEditDto;
+import com.demo.dto.createedit.user.UserCreateEditDto;
 import com.demo.entity.City;
 import com.demo.entity.user.User;
 import com.demo.mapper.Mapper;
