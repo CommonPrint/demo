@@ -1,11 +1,8 @@
-package com.demo.controller.product;
+package com.demo.controller.payment;
 
-import com.demo.dto.createedit.product.CategoryCreateEditDto;
-import com.demo.dto.createedit.product.ProductTypeCreateEditDto;
-import com.demo.dto.read.product.CategoryReadDto;
-import com.demo.dto.read.product.ProductTypeReadDto;
-import com.demo.service.product.CategoryService;
-import com.demo.service.product.ProductTypeService;
+import com.demo.dto.createedit.payment.PaymentTypeCreateEditDto;
+import com.demo.dto.read.payment.PaymentTypeReadDto;
+import com.demo.service.payment.PaymentTypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,40 +16,40 @@ import static org.springframework.http.ResponseEntity.noContent;
 import static org.springframework.http.ResponseEntity.notFound;
 
 @RestController
-@RequestMapping("/api/v1/product-type")
+@RequestMapping("/api/v1/payment-type")
 @RequiredArgsConstructor
-public class ProductTypeController {
+public class PaymentTypeController {
 
-    private final ProductTypeService productService;
+    private final PaymentTypeService paymentService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<ProductTypeReadDto> findAll() {
-        return productService.findAll();
+    public List<PaymentTypeReadDto> findAll() {
+        return paymentService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ProductTypeReadDto findById(@PathVariable("id") Long id) {
-        return productService.findById(id)
+    public PaymentTypeReadDto findById(@PathVariable("id") Long id) {
+        return paymentService.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductTypeReadDto create(@RequestBody ProductTypeCreateEditDto product) {
-        return productService.create(product);
+    public PaymentTypeReadDto create(@RequestBody PaymentTypeCreateEditDto payment) {
+        return paymentService.create(payment);
     }
 
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ProductTypeReadDto update(@PathVariable("id") Long id,
-                                 @RequestBody ProductTypeCreateEditDto product) {
-        return productService.update(id, product)
+    public PaymentTypeReadDto update(@PathVariable("id") Long id,
+                                 @RequestBody PaymentTypeCreateEditDto payment) {
+        return paymentService.update(id, payment)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Long id) {
-        return productService.delete(id)
+        return paymentService.delete(id)
                 ? noContent().build()
                 : notFound().build();
     }

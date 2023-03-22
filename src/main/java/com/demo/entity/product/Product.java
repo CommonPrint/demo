@@ -45,6 +45,7 @@ public class Product {
                 inverseJoinColumns = @JoinColumn(name = "share_id"))
     private Set<Share> shares = new HashSet<>();
 
+
     // У одного продукта может быть несколько акций и скидок
 //    @Builder.Default
 //    @OneToMany(mappedBy = "product")
