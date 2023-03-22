@@ -26,7 +26,7 @@ public class Insure {
     @Column(length = 2000)
     private String description;
 
-    private Long price;
+    private Integer price;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "insure_properties",
