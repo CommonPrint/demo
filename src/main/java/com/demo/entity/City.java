@@ -25,7 +25,7 @@ public class City {
 	@Column(name = "city_name", unique = true)
 	private String cityName;
 
-//    @OnDelete(action = OnDeleteAction.CASCADE) //Автоматом удалит города, если удалится город
+//    @OnDelete(action = OnDeleteAction.CASCADE) //Автоматом удалит города, если удалится страна
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", columnDefinition = "null")
     private Country country;

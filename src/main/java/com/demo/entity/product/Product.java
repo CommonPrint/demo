@@ -1,10 +1,13 @@
 package com.demo.entity.product;
 
 
+import com.demo.entity.City;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
