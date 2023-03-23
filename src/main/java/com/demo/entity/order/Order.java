@@ -10,12 +10,12 @@ import javax.persistence.*;
 import java.time.Instant;
 import java.time.LocalDate;
 
-@Entity
-@Data
-@Table
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+//@Entity
+//@Data
+//@Table
+//@Builder
+//@NoArgsConstructor
+//@AllArgsConstructor
 public class Order {
 
     @Id

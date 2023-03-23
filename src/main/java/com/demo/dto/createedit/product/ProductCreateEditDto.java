@@ -1,14 +1,12 @@
 package com.demo.dto.createedit.product;
 
-import com.demo.dto.read.product.CategoryReadDto;
-import com.demo.dto.read.product.ProductTypeReadDto;
+import com.demo.dto.read.product.ProductFileReadDto;
 import com.demo.dto.read.product.ShareReadDto;
-import com.demo.entity.product.Share;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -30,4 +28,5 @@ public class ProductCreateEditDto {
     private Long categoryId;
     private Set<ShareReadDto> shares;
 
+    private Set<ProductFileReadDto> files;
 }

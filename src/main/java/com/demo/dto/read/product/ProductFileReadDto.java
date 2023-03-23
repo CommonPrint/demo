@@ -13,17 +13,6 @@ public class ProductFileReadDto {
 
     Long id;
 
-    Integer price;
-
-    String name;
-
-    String color;
-
-    String description;
-
-    ProductTypeReadDto productType;
-
-    CategoryReadDto category;
-    Set<ShareReadDto> shares;
+    String url;
 
 }

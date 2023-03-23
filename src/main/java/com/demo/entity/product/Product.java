@@ -13,7 +13,6 @@ import java.util.Set;
 
 @Entity
 @Data
-//@ToString(exclude = "productShares")
 @Table
 @Builder
 @NoArgsConstructor
@@ -48,6 +47,13 @@ public class Product {
                 inverseJoinColumns = @JoinColumn(name = "share_id"))
     private Set<Share> shares = new HashSet<>();
 
+
+//    @Builder.Default
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "product_files",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_file_id"))
+    private Set<ProductFile> files = new HashSet<>();
 
     // У одного продукта может быть несколько акций и скидок
 //    @Builder.Default

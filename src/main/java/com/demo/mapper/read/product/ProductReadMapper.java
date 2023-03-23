@@ -1,13 +1,11 @@
 package com.demo.mapper.read.product;
 
 
-import com.demo.dto.read.product.CategoryReadDto;
-import com.demo.dto.read.product.ProductReadDto;
-import com.demo.dto.read.product.ProductTypeReadDto;
-import com.demo.dto.read.product.ShareReadDto;
+import com.demo.dto.read.product.*;
 import com.demo.entity.product.Product;
 import com.demo.mapper.Mapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -22,6 +20,8 @@ public class ProductReadMapper implements Mapper<Product, ProductReadDto> {
     private final CategoryReadMapper categoryReadMapper;
     private final ShareReadMapper shareReadMapper;
     private final ProductTypeReadMapper productTypeReadMapper;
+
+    private final ProductFileReadMapper productFileReadMapper;
 
     @Override
     public ProductReadDto map(Product object) {
@@ -38,6 +38,13 @@ public class ProductReadMapper implements Mapper<Product, ProductReadDto> {
                 .map(shareReadMapper::map)
                 .collect(Collectors.toSet());
 
+
+        System.out.println("Files: " + object.getFiles());
+
+        Set<ProductFileReadDto> files = object.getFiles().stream()
+                .map(productFileReadMapper::map)
+                .collect(Collectors.toSet());
+
         return new ProductReadDto(
                 object.getId(),
                 object.getPrice(),
@@ -46,7 +53,8 @@ public class ProductReadMapper implements Mapper<Product, ProductReadDto> {
                 object.getDescription(),
                 productType,
                 category,
-                shares
+                shares,
+                files
         );
     }
 }

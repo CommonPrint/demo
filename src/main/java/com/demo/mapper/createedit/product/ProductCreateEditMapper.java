@@ -1,15 +1,14 @@
 package com.demo.mapper.createedit.product;
 
 import com.demo.dto.createedit.product.ProductCreateEditDto;
+import com.demo.dto.read.product.ProductFileReadDto;
 import com.demo.dto.read.product.ShareReadDto;
-import com.demo.entity.product.Category;
-import com.demo.entity.product.Product;
+import com.demo.entity.product.*;
 import com.demo.entity.Country;
-import com.demo.entity.product.ProductType;
-import com.demo.entity.product.Share;
 import com.demo.mapper.Mapper;
 import com.demo.repository.CountryRepository;
 import com.demo.repository.product.CategoryRepository;
+import com.demo.repository.product.ProductFileRepository;
 import com.demo.repository.product.ProductTypeRepository;
 import com.demo.repository.product.ShareRepository;
 import lombok.RequiredArgsConstructor;
@@ -29,6 +28,7 @@ public class ProductCreateEditMapper implements Mapper<ProductCreateEditDto, Pro
     private final ShareRepository shareRepository;
     private final ProductTypeRepository productTypeRepository;
 
+    private final ProductFileRepository productFileRepository;
 
     @Override
     public Product map(ProductCreateEditDto object) {
@@ -55,6 +55,7 @@ public class ProductCreateEditMapper implements Mapper<ProductCreateEditDto, Pro
         product.setCategory(getCategory(object.getCategoryId()));
         product.setShares(getShares(object.getShares()));
         product.setProductType(getProductType(object.getProductTypeId()));
+        product.setFiles(getFiles(object.getFiles()));
     }
 
     // Получим Категорию Продукта
@@ -78,6 +79,22 @@ public class ProductCreateEditMapper implements Mapper<ProductCreateEditDto, Pro
         });
 
         return shareSet;
+
+    }
+
+
+    // Получим Изображения для продукта
+    public Set<ProductFile> getFiles(Set<ProductFileReadDto> files) {
+
+        Set<ProductFile> productFileSet = new HashSet<>();
+
+        files.forEach(fileReadDto -> {
+            productFileSet.add(
+                    productFileRepository.findById(fileReadDto.getId()).orElse(null)
+            );
+        });
+
+        return productFileSet;
 
     }
 

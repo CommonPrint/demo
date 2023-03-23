@@ -1,6 +1,7 @@
 package com.demo.repository.product;
 
 import com.demo.entity.product.Product;
+import com.demo.entity.product.ProductFile;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
