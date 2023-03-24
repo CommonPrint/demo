@@ -106,6 +106,7 @@ public class CityService {
                         //    В конце указываем, что города нет и значение city_id у пользователя будет null
                         UserCreateEditDto userEdit = new UserCreateEditDto(
                                 user.getId(),
+                                user.getUsername(),
                                 user.getFirstname(),
                                 user.getLastname(),
                                 user.getBirthDate(),
@@ -114,7 +115,8 @@ public class CityService {
                                 user.getEmail(),
                                 user.getPhoneNumber(),
                                 user.getAvatar(),
-                                null
+                                null,
+                                user.getRoles()
                         );
                         userCreateEditMapper.map(userEdit, user);
 

@@ -1,22 +1,30 @@
 package com.demo.service.user;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import com.demo.dto.createedit.user.UserCreateEditDto;
 import com.demo.dto.read.user.UserReadDto;
+import com.demo.entity.user.User;
 import com.demo.mapper.createedit.user.UserCreateEditMapper;
 import com.demo.mapper.read.user.UserReadMapper;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.demo.repository.user.UserRepository;
 
 import lombok.AllArgsConstructor;
 
+import javax.transaction.Transactional;
+
 
 @Service
 @AllArgsConstructor
-public class UserService {
+public class UserService implements UserDetailsService {
 
 	private final UserRepository userRepository;
 	private final UserCreateEditMapper userCreateEditMapper;
@@ -91,5 +99,15 @@ public class UserService {
 		userRepository.setUserAvatar(url, id);
 	}
 
-	
+
+
+	@Override
+	@Transactional
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = userRepository.findByUsername(username)
+				.orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
+
+		return UserDetailsImpl.build(user);
+	}
+
 }

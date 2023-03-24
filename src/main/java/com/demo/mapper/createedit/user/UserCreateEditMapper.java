@@ -6,8 +6,12 @@ import com.demo.entity.user.User;
 import com.demo.mapper.Mapper;
 import com.demo.repository.CityRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import java.util.Collection;
+import java.util.Objects;
 import java.util.Optional;
 
 @Component
@@ -46,6 +50,7 @@ public class UserCreateEditMapper implements Mapper<UserCreateEditDto, User> {
         user.setPhoneNumber(object.getPhoneNumber());
         user.setAvatar(object.getAvatar());
         user.setCity(getCity(object.getCityId()));
+        user.setUsername(object.getUsername());
     }
 
 

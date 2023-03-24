@@ -26,6 +26,7 @@ public class UserReadMapper implements Mapper<User, UserReadDto> {
 
         return new UserReadDto(
                 object.getId(),
+                object.getUsername(),
                 object.getFirstname(),
                 object.getLastname(),
                 object.getBirthDate(),
@@ -34,7 +35,8 @@ public class UserReadMapper implements Mapper<User, UserReadDto> {
                 object.getPassword(),
                 object.getPhoneNumber(),
                 object.getAvatar(),
-                city
+                city,
+                object.getRoles()
         );
     }
 

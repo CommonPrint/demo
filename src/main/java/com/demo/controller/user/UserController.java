@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
@@ -24,7 +25,9 @@ public class UserController {
     private final UserService userService;
     private final FileServiceImpl fileService;
 
+
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')") // Только пользователь с ролью 'ADMIN' сможет видеть всех пользователей
     public ResponseEntity<List<UserReadDto>> findAll() {
         List<UserReadDto> users = this.userService.findAllUsers();
 
