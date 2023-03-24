@@ -7,8 +7,6 @@ import com.demo.entity.product.ProductReview;
 import com.demo.mapper.Mapper;
 import com.demo.mapper.read.user.UserReadMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;

@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Set;
 
@@ -29,6 +30,7 @@ public class ProductCreateEditDto {
 
     private Long productGuaranteeId;
 
+    private Instant timeCreated;
     private Long categoryId;
     private Set<ShareReadDto> shares;
 
