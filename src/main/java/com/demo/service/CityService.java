@@ -113,6 +113,7 @@ public class CityService {
                                 user.getPassword(),
                                 user.getEmail(),
                                 user.getPhoneNumber(),
+                                user.getAvatar(),
                                 null
                         );
                         userCreateEditMapper.map(userEdit, user);

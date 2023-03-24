@@ -31,5 +31,7 @@ public class UserReadDto {
 
     Long phoneNumber;
 
+    String avatar;
+
     CityReadDto city;
 }

@@ -82,5 +82,14 @@ public class UserService {
 				.orElse(false);
 
 	}
+
+
+
+	// Установить url-адрес аватарки пользователя
+	public void setUserAvatar(String url, Long id) {
+
+		userRepository.setUserAvatar(url, id);
+	}
+
 	
 }

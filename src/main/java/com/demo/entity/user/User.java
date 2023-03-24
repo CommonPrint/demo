@@ -52,6 +52,9 @@ public class User {
 
 	private Long phoneNumber;
 
+	@Column(length = 1024)
+	private String avatar;
+
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "city_id", columnDefinition = "null")
 	private City city;

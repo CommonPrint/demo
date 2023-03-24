@@ -44,7 +44,7 @@ public class UserCreateEditMapper implements Mapper<UserCreateEditDto, User> {
         user.setClientAddress(object.getClientAddress());
         user.setPassword(object.getPassword());
         user.setPhoneNumber(object.getPhoneNumber());
-
+        user.setAvatar(object.getAvatar());
         user.setCity(getCity(object.getCityId()));
     }
 

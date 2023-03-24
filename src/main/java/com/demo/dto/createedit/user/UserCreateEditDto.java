@@ -30,6 +30,7 @@ public class UserCreateEditDto {
 
     private Long phoneNumber;
 
+    private String avatar;
     private Long cityId;
 
 }

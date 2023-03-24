@@ -33,6 +33,7 @@ public class UserReadMapper implements Mapper<User, UserReadDto> {
                 object.getEmail(),
                 object.getPassword(),
                 object.getPhoneNumber(),
+                object.getAvatar(),
                 city
         );
     }
