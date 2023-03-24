@@ -20,8 +20,11 @@ public class ProductReadMapper implements Mapper<Product, ProductReadDto> {
     private final CategoryReadMapper categoryReadMapper;
     private final ShareReadMapper shareReadMapper;
     private final ProductTypeReadMapper productTypeReadMapper;
+    private final ProductGuaranteeReadMapper productGuaranteeReadMapper;
 
     private final ProductFileReadMapper productFileReadMapper;
+
+    private final ProductReviewReadMapper productReviewReadMapper;
 
     @Override
     public ProductReadDto map(Product object) {
@@ -34,15 +37,21 @@ public class ProductReadMapper implements Mapper<Product, ProductReadDto> {
                 .map(productTypeReadMapper::map)
                 .orElse(null);
 
+        ProductGuaranteeReadDto productGuarantee = Optional.ofNullable(object.getProductGuarantee())
+                .map(productGuaranteeReadMapper::map)
+                .orElse(null);
+
         Set<ShareReadDto> shares = object.getShares().stream()
                 .map(shareReadMapper::map)
                 .collect(Collectors.toSet());
 
 
-        System.out.println("Files: " + object.getFiles());
-
         Set<ProductFileReadDto> files = object.getFiles().stream()
                 .map(productFileReadMapper::map)
+                .collect(Collectors.toSet());
+
+        Set<ProductReviewReadDto> reviews = object.getReviews().stream()
+                .map(productReviewReadMapper::map)
                 .collect(Collectors.toSet());
 
         return new ProductReadDto(
@@ -52,9 +61,11 @@ public class ProductReadMapper implements Mapper<Product, ProductReadDto> {
                 object.getColor(),
                 object.getDescription(),
                 productType,
+                productGuarantee,
                 category,
                 shares,
-                files
+                files,
+                reviews
         );
     }
 }

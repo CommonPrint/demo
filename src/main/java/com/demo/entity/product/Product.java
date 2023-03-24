@@ -35,6 +35,10 @@ public class Product {
     @JoinColumn(name = "product_type_id")
     private ProductType productType;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_guarantee_id")
+    private ProductGuarantee productGuarantee;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", columnDefinition = "null")
     private Category category;
@@ -57,6 +61,9 @@ public class Product {
 
     // У одного продукта может быть несколько акций и скидок
 //    @Builder.Default
-//    @OneToMany(mappedBy = "product")
-//    private List<ProductShare> productShares = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "product_reviews",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_review_id"))
+    private Set<ProductReview> reviews = new HashSet<>();
 }

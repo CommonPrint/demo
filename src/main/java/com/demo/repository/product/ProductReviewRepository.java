@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface ProductReviewRepository extends JpaRepository<ProductReview, Long> {
 
-    @Query("SELECT r FROM ProductReview r WHERE r.product.id = :productId")
-    List<ProductReview> findAllByProductId(@Param("productId") Long productId);
+//    @Query("SELECT r FROM ProductReview r WHERE r.product.id = :productId")
+//    List<ProductReview> findAllByProductId(@Param("productId") Long productId);
 
 }

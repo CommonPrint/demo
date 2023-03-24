@@ -16,7 +16,7 @@ import java.util.Optional;
 public class ProductReviewCreateEditMapper implements Mapper<ProductReviewCreateEditDto, ProductReview> {
 
     private final UserRepository userRepository;
-    private final ProductRepository productRepository;
+//    private final ProductRepository productRepository;
 
 
     @Override
@@ -42,17 +42,17 @@ public class ProductReviewCreateEditMapper implements Mapper<ProductReviewCreate
         review.setFlaws(object.getFlaws());
         review.setTextReview(object.getTextReview());
         review.setDateReview(object.getDateReview());
-        review.setProduct(getProduct(object.getProductId()));
+//        review.setProduct(getProduct(object.getProductId()));
         review.setUser(getUser(object.getUserId()));
     }
 
     // Получим продукт к отзыву
-    public Product getProduct(Long productId) {
-
-        return Optional.ofNullable(productId)
-                .flatMap(productRepository::findById)
-                .orElse(null);
-    }
+//    public Product getProduct(Long productId) {
+//
+//        return Optional.ofNullable(productId)
+//                .flatMap(productRepository::findById)
+//                .orElse(null);
+//    }
 
     // Получим пользователя отзыва
     public User getUser(Long userId) {

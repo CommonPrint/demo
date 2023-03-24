@@ -31,13 +31,13 @@ public class ProductReviewService {
 
 
     // Найдем все отзывы продукта
-    public List<ProductReviewReadDto> findAllByProductId(Long productId) {
-
-        return productReviewRepo.findAllByProductId(productId)
-                .stream()
-                .map(productReviewReadMapper::map)
-                .toList();
-    }
+//    public List<ProductReviewReadDto> findAllByProductId(Long productId) {
+//
+//        return productReviewRepo.findAllByProductId(productId)
+//                .stream()
+//                .map(productReviewReadMapper::map)
+//                .toList();
+//    }
 
 
     // Найдем отзыв по id

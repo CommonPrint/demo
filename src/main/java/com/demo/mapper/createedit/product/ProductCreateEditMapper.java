@@ -2,24 +2,17 @@ package com.demo.mapper.createedit.product;
 
 import com.demo.dto.createedit.product.ProductCreateEditDto;
 import com.demo.dto.read.product.ProductFileReadDto;
+import com.demo.dto.read.product.ProductReviewReadDto;
 import com.demo.dto.read.product.ShareReadDto;
 import com.demo.entity.product.*;
-import com.demo.entity.Country;
 import com.demo.mapper.Mapper;
-import com.demo.repository.CountryRepository;
-import com.demo.repository.product.CategoryRepository;
-import com.demo.repository.product.ProductFileRepository;
-import com.demo.repository.product.ProductTypeRepository;
-import com.demo.repository.product.ShareRepository;
+import com.demo.repository.product.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
-
 @Component
 @RequiredArgsConstructor
 public class ProductCreateEditMapper implements Mapper<ProductCreateEditDto, Product> {
@@ -28,7 +21,10 @@ public class ProductCreateEditMapper implements Mapper<ProductCreateEditDto, Pro
     private final ShareRepository shareRepository;
     private final ProductTypeRepository productTypeRepository;
 
+    private final ProductGuaranteeRepository productGuaranteeRepository;
     private final ProductFileRepository productFileRepository;
+
+    private final ProductReviewRepository productReviewRepository;
 
     @Override
     public Product map(ProductCreateEditDto object) {
@@ -55,7 +51,9 @@ public class ProductCreateEditMapper implements Mapper<ProductCreateEditDto, Pro
         product.setCategory(getCategory(object.getCategoryId()));
         product.setShares(getShares(object.getShares()));
         product.setProductType(getProductType(object.getProductTypeId()));
+        product.setProductGuarantee(getProductGuarantee(object.getProductGuaranteeId()));
         product.setFiles(getFiles(object.getFiles()));
+        product.setReviews(getReviews(object.getReviews()));
     }
 
     // Получим Категорию Продукта
@@ -98,11 +96,33 @@ public class ProductCreateEditMapper implements Mapper<ProductCreateEditDto, Pro
 
     }
 
+    public Set<ProductReview> getReviews(Set<ProductReviewReadDto> reviews) {
+
+        Set<ProductReview> productReviewSet = new HashSet<>();
+
+        reviews.forEach(reviewReadDto -> {
+            productReviewSet.add(
+                    productReviewRepository.findById(reviewReadDto.getId()).orElse(null)
+            );
+        });
+
+        return productReviewSet;
+
+    }
+
 
     //    Получим "Тип продукта" (компьютер, телевизор, смартфон)
     public ProductType getProductType(Long productTypeId) {
         return Optional.ofNullable(productTypeId)
                 .flatMap(productTypeRepository::findById)
+                .orElse(null);
+    }
+
+
+    //    Получим "Гарантию продукта" (1 год, 2 года и тд)
+    public ProductGuarantee getProductGuarantee(Long productGuaranteeId) {
+        return Optional.ofNullable(productGuaranteeId)
+                .flatMap(productGuaranteeRepository::findById)
                 .orElse(null);
     }
 }

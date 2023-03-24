@@ -22,7 +22,8 @@ public class ProductFileReadMapper implements Mapper<ProductFile, ProductFileRea
 
         return new ProductFileReadDto(
                 object.getId(),
-                object.getUrl()
+                object.getUrl(),
+                object.isAvatar()
         );
 
     }

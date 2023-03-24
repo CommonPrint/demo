@@ -25,9 +25,12 @@ public class ProductReadDto {
     String description;
 
     ProductTypeReadDto productType;
+    ProductGuaranteeReadDto productGuarantee;
 
     CategoryReadDto category;
     Set<ShareReadDto> shares;
 
     Set<ProductFileReadDto> files;
+
+    Set<ProductReviewReadDto> reviews;
 }

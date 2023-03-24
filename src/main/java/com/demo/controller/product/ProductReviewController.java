@@ -31,14 +31,22 @@ public class ProductReviewController {
     }
 
 
-    // Вернет отзывы по id продукта
+    // Вернем конкретный отзыв
     @GetMapping("/{id}")
-    public ResponseEntity<List<ProductReviewReadDto>> findByProductId(@PathVariable("id") Long productId) {
-
-        List<ProductReviewReadDto> reviews = this.productReviewService.findAllByProductId(productId);
-
-        return new ResponseEntity<List<ProductReviewReadDto>>(reviews, HttpStatus.OK);
+    public ProductReviewReadDto findByProductId(@PathVariable("id") Long reviewId) {
+        return productReviewService.findById(reviewId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
+
+
+    // Вернет отзывы по id продукта
+//    @GetMapping("/{id}")
+//    public ResponseEntity<List<ProductReviewReadDto>> findByProductId(@PathVariable("id") Long productId) {
+//
+//        List<ProductReviewReadDto> reviews = this.productReviewService.findAllByProductId(productId);
+//
+//        return new ResponseEntity<List<ProductReviewReadDto>>(reviews, HttpStatus.OK);
+//    }
 
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)

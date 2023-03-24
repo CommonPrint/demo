@@ -23,6 +23,9 @@ public class ProductFile {
     @Column(length = 768)
     private String url;
 
+    // Является ли изображение как аватарй
+    private boolean avatar;
+
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "product_id", columnDefinition = "null")
 //    private Product product;

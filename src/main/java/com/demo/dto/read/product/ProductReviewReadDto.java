@@ -26,7 +26,7 @@ public class ProductReviewReadDto {
 
     LocalDate dateReview;
 
-    ProductReadDto product;
+//    ProductReadDto product;
 
     UserReadDto user;
 

@@ -16,4 +16,5 @@ public class ProductFileCreateEditDto {
 
     private String url;
 
+    private boolean avatar;
 }

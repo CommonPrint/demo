@@ -22,7 +22,7 @@ public class ProductReviewCreateEditDto {
 
     private LocalDate dateReview;
 
-    private Long productId;
+//    private Long productId;
 
     private Long userId;
 

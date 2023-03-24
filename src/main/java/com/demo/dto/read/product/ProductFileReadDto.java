@@ -15,4 +15,5 @@ public class ProductFileReadDto {
 
     String url;
 
+    boolean avatar;
 }

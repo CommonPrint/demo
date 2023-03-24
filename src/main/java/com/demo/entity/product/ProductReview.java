@@ -40,9 +40,9 @@ public class ProductReview {
     private LocalDate dateReview;
 
     // Несколько отзывов к одному продукту
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "product_id", nullable = false)
+//    private Product product;
 
 
 

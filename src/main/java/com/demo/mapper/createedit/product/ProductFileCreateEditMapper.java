@@ -30,7 +30,10 @@ public class ProductFileCreateEditMapper implements Mapper<ProductFileCreateEdit
 
     // Вставим данные
     private void copy(ProductFileCreateEditDto object, ProductFile productFile) {
+
         productFile.setUrl(object.getUrl());
+        productFile.setAvatar(object.isAvatar());
+
     }
 
 }
